@@ -131,49 +131,79 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-document.addEventListener("DOMContentLoaded", function() {
-    fetch('01_assets/data/informace.json')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('uvod-description').innerText = data.uvod.description;
-            document.getElementById('zazemi-description').innerText = data.zazemi.description;
-            document.getElementById('moznost-platby-description').innerText = data.moznostPlatby.description;
-            document.getElementById('smluvni-pojistovny-description').innerText = data.smluvniPojistovny.description;
-
-            const ordinacniHodinyContainer = document.getElementById('ordinacni-hodiny-description');
-            ordinacniHodinyContainer.innerHTML = ''; // Clear existing content
-
-            data.ordinacniHodiny.description.forEach(den => {
-                const denWrapper = document.createElement('div');
-                denWrapper.classList.add('open-hours-item');
-                
-                const denText = document.createElement('span');
-                denText.classList.add('open-hours-day');
-                denText.textContent = den.split(": ")[0]; // Day of the week
-
-                const timeText = document.createElement('span');
-                timeText.classList.add('open-hours-time');
-                timeText.textContent = den.split(": ")[1]; // Open hours
-
-                denWrapper.appendChild(denText);
-                denWrapper.appendChild(timeText);
-                ordinacniHodinyContainer.appendChild(denWrapper);
-            });
-
-            const smluvniPojistovnyContainer = document.getElementById('smluvni-pojistovny-link');
-            smluvniPojistovnyContainer.innerHTML = ''; // Clear existing content
-            data.smluvniPojistovny.logo.forEach(imagePath => {
-                const img = document.createElement('img');
-                img.src = imagePath;
-                img.alt = "Smluvní pojišťovna";
-                img.classList.add('img-fluid', 'm-2');
-                smluvniPojistovnyContainer.appendChild(img);
-            });
-        })
-        .catch(error => console.error('Error fetching the JSON data:', error));
-});
-
-    </script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('01_assets/data/informace.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('uvod-description').innerText = data.uvod.description;
+                document.getElementById('zazemi-description').innerText = data.zazemi.description;
+                document.getElementById('moznost-platby-description').innerText = data.moznostPlatby.description;
+                document.getElementById('smluvni-pojistovny-description').innerText = data.smluvniPojistovny.description;
+    
+                const ordinacniHodinyContainer = document.getElementById('ordinacni-hodiny-description');
+                ordinacniHodinyContainer.innerHTML = ''; // Clear existing content
+    
+                // Create a table
+                const table = document.createElement('table');
+                table.classList.add('table', 'table-striped', 'mt-3');
+                const thead = document.createElement('thead');
+                const tbody = document.createElement('tbody');
+    
+                // Create table headers
+                const headerRow = document.createElement('tr');
+                const headers = ['Den', 'Dopoledne', 'Odpoledne'];
+                headers.forEach(headerText => {
+                    const th = document.createElement('th');
+                    th.scope = 'col';
+                    th.innerText = headerText;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+    
+                // Create table rows
+                data.ordinacniHodiny.forEach(den => {
+                    const row = document.createElement('tr');
+    
+                    const dayCell = document.createElement('td');
+                    dayCell.innerText = den.day;
+                    row.appendChild(dayCell);
+    
+                    const morningCell = document.createElement('td');
+                    morningCell.innerText = den.morning;
+                    row.appendChild(morningCell);
+    
+                    const afternoonCell = document.createElement('td');
+                    afternoonCell.innerText = den.afternoon;
+                    row.appendChild(afternoonCell);
+    
+                    tbody.appendChild(row);
+                });
+    
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                ordinacniHodinyContainer.appendChild(table);
+    
+                const smluvniPojistovnyContainer = document.getElementById('smluvni-pojistovny-link');
+                smluvniPojistovnyContainer.innerHTML = ''; // Clear existing content
+                for (const company in data.smluvniPojistovny) {
+                    if (data.smluvniPojistovny.hasOwnProperty(company) && company !== 'description') {
+                        const img = document.createElement('img');
+                        img.src = data.smluvniPojistovny[company].logo;
+                        img.alt = company;
+                        img.classList.add('img-fluid', 'm-2');
+    
+                        const link = document.createElement('a');
+                        link.href = data.smluvniPojistovny[company].link;
+                        link.target = "_blank";
+                        link.appendChild(img);
+    
+                        smluvniPojistovnyContainer.appendChild(link);
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching the JSON data:', error));
+    });
+     </script>
 
 </body>
 </html>
