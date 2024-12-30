@@ -27,9 +27,7 @@
     "smluvniPojistovny": {
         "description": "Máme smlouvy s těmito poskytovateli zdravotního pojištění:",
         "logo": [
-          "01_assets/images/vzp-logo.png",
-          "",
-          ""
+          "01_assets/images/vzp-logo.png"
         ]
     }
 }
