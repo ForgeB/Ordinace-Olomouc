@@ -139,7 +139,14 @@
                     document.getElementById('ordinacni-hodiny-description').innerText = data.ordinacniHodiny.description;
                     document.getElementById('moznost-platby-description').innerText = data.moznostPlatby.description;
                     document.getElementById('smluvni-pojistovny-description').innerText = data.smluvniPojistovny.description;
-    
+
+                    const ordinacniHodinyContainer = document.getElementById('ordinacni-hodiny-description');
+                    data.ordinacniHodiny.description.forEach(den => {
+                        const denTydnu = document.createElement('li');
+                        denTydnu.textContent = den;
+                        ordinacniHodinyContainer.appendChild(denTydnu);
+                    });
+
                     const smluvniPojistovnyContainer = document.getElementById('smluvni-pojistovny-link');
                     data.smluvniPojistovny.images.forEach(imagePath => {
                         const img = document.createElement('img');
