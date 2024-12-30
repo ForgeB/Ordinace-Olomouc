@@ -35,17 +35,16 @@
         {
             "day": "Sobota",
             "morning": "Zavřeno",
-            "afternoon": ""
+            "afternoon": "Zavřeno"
         },
         {
             "day": "Neděle",
             "morning": "Zavřeno",
-            "afternoon": ""
+            "afternoon": "Zavřeno"
         },
         {
             "day": "Poznámka",
-            "morning": "Ordinařní doba se může lišit v připadě státních svátků, dovolené a neočekávaných situací.",
-            "afternoon": ""
+            "morning": "Ordinařní doba se může lišit v připadě státních svátků, dovolené a neočekávaných situací."
         }
     ],
     "moznostPlatby": {
