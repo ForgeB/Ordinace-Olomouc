@@ -18,7 +18,7 @@
             color: #ffffff !important; /* White text for navbar links */
         }
         .navbar-light .navbar-toggler {
-            color: rgba(255, 255, 255, 0.5); /* Hoover the button blender */
+            background-color: rgba(255, 255, 255, 0.5); /* Hover button color */
         }
         .bg-light {
             background-color: #4b0082 !important; /* navigation bar - top */
@@ -135,10 +135,10 @@
         fetch('01_assets/data/informace.json')
             .then(response => response.json())
             .then(data => {
-                document.getElementById('uvod-description').innerText = data.uvod.description;
-                document.getElementById('zazemi-description').innerText = data.zazemi.description;
-                document.getElementById('moznost-platby-description').innerText = data.moznostPlatby.description;
-                document.getElementById('smluvni-pojistovny-description').innerText = data.smluvniPojistovny.description;
+                document.getElementById('uvod-description').innerText = data.uvod.description || 'Description not available.';
+                document.getElementById('zazemi-description').innerText = data.zazemi.description || 'Description not available.';
+                document.getElementById('moznost-platby-description').innerText = data.moznostPlatby.description.join(' ') || 'Description not available.';
+                document.getElementById('smluvni-pojistovny-description').innerText = data.smluvniPojistovny.description || 'Description not available.';
     
                 const ordinacniHodinyContainer = document.getElementById('ordinacni-hodiny-description');
                 ordinacniHodinyContainer.innerHTML = ''; // Clear existing content
@@ -165,15 +165,15 @@
                     const row = document.createElement('tr');
     
                     const dayCell = document.createElement('td');
-                    dayCell.innerText = den.day;
+                    dayCell.innerText = den.day || 'N/A';
                     row.appendChild(dayCell);
     
                     const morningCell = document.createElement('td');
-                    morningCell.innerText = den.morning;
+                    morningCell.innerText = den.morning || 'N/A';
                     row.appendChild(morningCell);
     
                     const afternoonCell = document.createElement('td');
-                    afternoonCell.innerText = den.afternoon;
+                    afternoonCell.innerText = den.afternoon || 'N/A';
                     row.appendChild(afternoonCell);
     
                     tbody.appendChild(row);
@@ -188,12 +188,12 @@
                 for (const company in data.smluvniPojistovny) {
                     if (data.smluvniPojistovny.hasOwnProperty(company) && company !== 'description') {
                         const img = document.createElement('img');
-                        img.src = data.smluvniPojistovny[company].logo;
+                        img.src = data.smluvniPojistovny[company].logo || 'placeholder.png';
                         img.alt = company;
                         img.classList.add('img-fluid', 'm-2');
     
                         const link = document.createElement('a');
-                        link.href = data.smluvniPojistovny[company].link;
+                        link.href = data.smluvniPojistovny[company].link || '#';
                         link.target = "_blank";
                         link.appendChild(img);
     
