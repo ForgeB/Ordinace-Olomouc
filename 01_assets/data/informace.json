@@ -1,0 +1,35 @@
+{
+    "uvod": {
+        "title": "Zubní Ordinace Olomouc",
+        "description": "Váš důvěryhodný poskytovatel zubní péče v Olomouci."
+    },
+    "zazemi": {
+        "description": "Nejmodernější vybavení, které u nás používáme."
+    },
+    "ordinacniHodiny": {
+        "description": [
+          "Pondělí: 7:30–12:00, 12:30–15:00",
+          "Úterý: 7:30–11:00, 13:00–19:00",
+          "Středa: 7:30–12:00, 12:30–15:00",
+          "Čtvrtek: 7:30–12:00, 12:30–15:00",
+          "Pátek: 7:30–12:00",
+          "Sobota: Zavřeno",
+          "Neděle: Zavřeno",
+          "Ordinařní doba se může lišit v připadě státních svátků, dovolené a neočekávaných situací."
+        ]
+    }
+    "moznost-platby": {
+        "description": [
+          "Pomocí QR kódu nebo hotově na místě.",
+          "Pro vzgenerování QR kódu postupujte dále v odkazu."
+        ]
+    },
+    "smluvni-pojistovny": {
+        "description": "Máme smlouvy s těmito poskytovateli zdravotního pojištění:"
+        "logo": [
+          "01_assets/images/vzp-logo.png",
+          "",
+          ""
+        ]
+    }
+}
