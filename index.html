@@ -69,40 +69,75 @@
     </nav>
 
     <div class="container mt-5" id="uvod">
-        <h1>Welcome to Zubní Ordinace Olomouc</h1>
-        <p>Your trusted dental care provider in Olomouc.</p>
-        <a class="btn btn-primary" href="#">Make an Appointment</a>
+        <h1>Vétejte v Zubní ordinaci Olomouc</h1>
+        <p id="uvod-description"></p>
+        <a class="btn btn-primary" href="#">Objednat se</a>
     </div>
-
+    
     <div class="container mt-5" id="zazemi">
         <h2>Zázemí</h2>
-        <p>Information about our facilities.</p>
+        <p id="zazemi-description"></p>
     </div>
-
+    
     <div class="container mt-5" id="ordinacni-hodiny">
         <h2>Ordinační hodiny</h2>
-        <p>Our office hours.</p>
+        <p id="ordinacni-hodiny-description"></p>
     </div>
-
+    
     <div class="container mt-5" id="kontakty">
         <h2>Kontakty</h2>
-        <p>Contact information.</p>
+        <p id="kontakty-description"></p>
+    </div>
+
+    <div class="container mt-5" id="moznost-platby">
+        <h2>Možnosti platby</h2>
+        <p id="moznost-platby-description"></p>
+    </div>
+
+    <div class="container mt-5" id="smluvni-pojistovny">
+        <h2>Smluvní pojišťovny</h2>
+        <p id="smluvni-pojistovny-description"></p>
+        <p id="smluvni-pojistovny-link"></p>
     </div>
 
     <div class="container mt-5" id="kde-nas-najdete">
         <h2>Kde nás najdete</h2>
-        <p>Directions to our clinic.</p>
+        <p>Stálá adresa ordinace:</p>
+        <p>Hanáckého pluku 1153/6</p>
+        <p>779 00</p>
+        <p>Olomouc</p>
+        <p>Najděte cestu k nám na mapě Google:</p>
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed/v1/place?q=Hanáckého%20pluku%201153,%20779%2000%20Olomouc%209&key=AIzaSyBy6BcsSbjG9shzSC81OdtPnCn9IikBfug" allowfullscreen></iframe>
+            <a href="https://www.google.com/maps/place/Hanáckého+pluku+1153,+779+00+Olomouc,+Czechia" target="_blank">
+                <img class="embed-responsive-item" src="https://maps.googleapis.com/maps/api/staticmap?center=Hanáckého%20pluku%201153,%20779%2000%20Olomouc%209&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C49.5955,17.2515&key=AIzaSyBy6BcsSbjG9shzSC81OdtPnCn9IikBfug" alt="Map of our location">
+            </a>
         </div>
     </div>
 
     <footer class="text-center mt-5">
-        <p>&copy; 2024 Zubní Ordinace Olomouc. All rights reserved.</p>
+        <p>&copy; 2025 Zubní Ordinace Olomouc. Všchnz práva vzhrazena.</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('data/informace.json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('uvod-description').innerText = data.uvod.description;
+                    document.getElementById('zazemi-description').innerText = data.zazemi.description;
+                    document.getElementById('ordinacni-hodiny-description').innerText = data.ordinacniHodiny.description;
+                    document.getElementById('moznost-platby').innerText = data.moznost-platby.description;
+                    document.getElementById('smluvni-pojistovny').innerText = data.smluvni-pojistovny.description;
+                    document.getElementById('smluvni-pojistovny').innerText = data.sluvni-pojistovny.link;
+                })
+                .catch(error => console.error('Error fetching the JSON data:', error));
+        });
+    </script>
+    
 </body>
 </html>
+
