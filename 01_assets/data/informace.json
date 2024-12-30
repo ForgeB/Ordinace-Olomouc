@@ -6,27 +6,63 @@
     "zazemi": {
         "description": "Nejmodernější vybavení, které u nás používáme."
     },
-    "ordinacniHodiny": {
-        "description": [
-          "Pondělí: 7:30–12:00, 12:30–15:00",
-          "Úterý: 7:30–11:00, 13:00–19:00",
-          "Středa: 7:30–12:00, 12:30–15:00",
-          "Čtvrtek: 7:30–12:00, 12:30–15:00",
-          "Pátek: 7:30–12:00",
-          "Sobota: Zavřeno",
-          "Neděle: Zavřeno"
-        ]
-    },
+    "ordinacniHodiny": [
+        {
+            "day": "Pondělí",
+            "morning": "7:30–12:00",
+            "afternoon": "12:30–15:00"
+        },
+        {
+            "day": "Úterý",
+            "morning": "7:30–11:00",
+            "afternoon": "13:00–19:00"
+        },
+        {
+            "day": "Středa",
+            "morning": "7:30–12:00",
+            "afternoon": "12:30–15:00"
+        },
+        {
+            "day": "Čtvrtek",
+            "morning": "7:30–12:00",
+            "afternoon": "12:30–15:00"
+        },
+        {
+            "day": "Pátek",
+            "morning": "7:30–12:00",
+            "afternoon": ""
+        },
+        {
+            "day": "Sobota",
+            "morning": "Zavřeno",
+            "afternoon": ""
+        },
+        {
+            "day": "Neděle",
+            "morning": "Zavřeno",
+            "afternoon": ""
+        },
+        {
+            "day": "Poznámka",
+            "morning": "Ordinařní doba se může lišit v připadě státních svátků, dovolené a neočekávaných situací.",
+            "afternoon": ""
+        }
+    ],
     "moznostPlatby": {
         "description": [
-          "Pomocí QR kódu nebo hotově na místě.",
-          "Pro vzgenerování QR kódu postupujte dále v odkazu."
+            "Pomocí QR kódu nebo hotově na místě.",
+            "Pro vzgenerování QR kódu postupujte dále v odkazu."
         ]
     },
     "smluvniPojistovny": {
         "description": "Máme smlouvy s těmito poskytovateli zdravotního pojištění:",
-        "logo": [
-          "01_assets/images/vzp-logo.png"
-        ]
+        "insurance_company1": {
+            "logo": "01_assets/images/vzp-logo.png",
+            "link": "https://www.vzp.cz"
+        },
+        "insurance_company2": {
+            "logo": "01_assets/images/other-insurance-logo.png",
+            "link": "https://www.otherinsurance.cz"
+        }
     }
 }
