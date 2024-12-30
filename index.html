@@ -124,7 +124,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            fetch('data/informace.json')
+            fetch('01_assets/data/informace.json')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('uvod-description').innerText = data.uvod.description;
