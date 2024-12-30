@@ -89,6 +89,7 @@
     <div class="container mt-5" id="ordinacni-hodiny">
         <h2>Ordinační hodiny</h2>
         <p id="ordinacni-hodiny-description"></p>
+        <p>Ordinařní doba se může lišit v připadě státních svátků, dovolené a neočekávaných situací.</p>
     </div>
     
     <div class="container mt-5" id="kontakty">
@@ -130,35 +131,48 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('01_assets/data/informace.json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('uvod-description').innerText = data.uvod.description;
-                document.getElementById('zazemi-description').innerText = data.zazemi.description;
-                document.getElementById('moznost-platby-description').innerText = data.moznostPlatby.description;
-                document.getElementById('smluvni-pojistovny-description').innerText = data.smluvniPojistovny.description;
-    
-                const ordinacniHodinyContainer = document.getElementById('ordinacni-hodiny-description');
-                ordinacniHodinyContainer.innerHTML = ''; // Clear existing content
-                data.ordinacniHodiny.description.forEach(den => {
-                    const denTydnu = document.createElement('li');
-                    denTydnu.textContent = den;
-                    ordinacniHodinyContainer.appendChild(denTydnu);
-                });
-    
-                const smluvniPojistovnyContainer = document.getElementById('smluvni-pojistovny-link');
-                smluvniPojistovnyContainer.innerHTML = ''; // Clear existing content
-                data.smluvniPojistovny.logo.forEach(imagePath => {
-                    const img = document.createElement('img');
-                    img.src = imagePath;
-                    img.alt = "Smluvní pojišťovna";
-                    img.classList.add('img-fluid', 'm-2');
-                    smluvniPojistovnyContainer.appendChild(img);
-                });
-            })
-            .catch(error => console.error('Error fetching the JSON data:', error));
-    });
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('01_assets/data/informace.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('uvod-description').innerText = data.uvod.description;
+            document.getElementById('zazemi-description').innerText = data.zazemi.description;
+            document.getElementById('moznost-platby-description').innerText = data.moznostPlatby.description;
+            document.getElementById('smluvni-pojistovny-description').innerText = data.smluvniPojistovny.description;
+
+            const ordinacniHodinyContainer = document.getElementById('ordinacni-hodiny-description');
+            ordinacniHodinyContainer.innerHTML = ''; // Clear existing content
+
+            data.ordinacniHodiny.description.forEach(den => {
+                const denWrapper = document.createElement('div');
+                denWrapper.classList.add('open-hours-item');
+                
+                const denText = document.createElement('span');
+                denText.classList.add('open-hours-day');
+                denText.textContent = den.split(": ")[0]; // Day of the week
+
+                const timeText = document.createElement('span');
+                timeText.classList.add('open-hours-time');
+                timeText.textContent = den.split(": ")[1]; // Open hours
+
+                denWrapper.appendChild(denText);
+                denWrapper.appendChild(timeText);
+                ordinacniHodinyContainer.appendChild(denWrapper);
+            });
+
+            const smluvniPojistovnyContainer = document.getElementById('smluvni-pojistovny-link');
+            smluvniPojistovnyContainer.innerHTML = ''; // Clear existing content
+            data.smluvniPojistovny.logo.forEach(imagePath => {
+                const img = document.createElement('img');
+                img.src = imagePath;
+                img.alt = "Smluvní pojišťovna";
+                img.classList.add('img-fluid', 'm-2');
+                smluvniPojistovnyContainer.appendChild(img);
+            });
+        })
+        .catch(error => console.error('Error fetching the JSON data:', error));
+});
+
     </script>
 
 </body>
