@@ -14,13 +14,13 @@
         },
         {
             "day": "Úterý",
-            "morning": "7:30–11:00",
-            "afternoon": "13:00–19:00"
+            "morning": "7:30–11:30",
+            "afternoon": "13:00–17:30"
         },
         {
             "day": "Středa",
             "morning": "7:30–12:00",
-            "afternoon": "12:30–15:00"
+            "afternoon": ""
         },
         {
             "day": "Čtvrtek",
@@ -49,8 +49,7 @@
     ],
     "moznostPlatby": {
         "description": [
-            "Pomocí QR kódu nebo hotově na místě.",
-            "Pro vzgenerování QR kódu postupujte dále v odkazu."
+            "hotově na místě."
         ]
     },
     "smluvniPojistovny": {
