@@ -1,174 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Tailwind CSS CDN -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zubní Ordinace Olomouc</title>
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Zubní Ordinace</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#uvod">Úvod<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#zazemi">Zázemí</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#ordinacni-hodiny">Ordinační hodiny</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#kontakty">Kontakty</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#kde-nas-najdete">Kde nás najdete</a>
-                </li>
-              </ul>
-        </div>
-    </nav>
-
-    <div class="container mt-5" id="uvod">
-        <h1>Vétejte v Zubní ordinaci Olomouc</h1>
-        <p id="uvod-description"></p>
-        <a class="btn btn-primary" href="#">Objednat se</a>
-    </div>
-    
-    <div class="container mt-5" id="zazemi">
-        <h2>Zázemí</h2>
-        <p id="zazemi-description"></p>
-    </div>
-    
-    <div class="container mt-5" id="ordinacni-hodiny">
-        <h2>Ordinační hodiny</h2>
-        <p id="ordinacni-hodiny-description"></p>
-    </div>
-    
-    <div class="container mt-5" id="kontakty">
-        <h2>Kontakty</h2>
-        <p id="kontakty-description"></p>
-    </div>
-
-    <div class="container mt-5" id="moznost-platby">
-        <h2>Možnosti platby</h2>
-        <p id="moznost-platby-description"></p>
-    </div>
-
-    <div class="container mt-5" id="smluvni-pojistovny">
-        <h2>Smluvní pojišťovny</h2>
-        <p id="smluvni-pojistovny-description"></p>
-        <div id="smluvni-pojistovny-link"></div>
-    </div>
-
-    <div class="container mt-5" id="kde-nas-najdete">
-        <h2>Kde nás najdete</h2>
-        <p>Stálá adresa ordinace:</p>
-        <p>Hanáckého pluku 1153/6</p>
-        <p>779 00</p>
-        <p>Olomouc</p>
-        <p>Najděte cestu k nám na mapě Google:</p>
-        <div class="embed-responsive embed-responsive-16by9">
-            <a href="https://www.google.com/maps/place/Hanáckého+pluku+1153,+779+00+Olomouc,+Czechia" target="_blank">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21184654.07177084!2d-21.766285300000007!3d49.5974224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47124e8cde9435a7%3A0x3c86d3bcc38871b2!2sVlachopulosov%C3%A1%20Sylva%20MUDr.!5e0!3m2!1scs!2scz!4v1735584068089!5m2!1scs!2scz"
-                    width="800"
-                    height="600"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </a>
-        </div>
-    </div>
+    <a class="navbar-brand" href="#">Zubní Ordinace - website in construction</a>
+ 
 
     <footer class="text-center mt-5">
         <p>&copy; 2025 Zubní Ordinace Olomouc. Všchna práva vzhrazena.</p>
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('01_assets/data/informace.json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('uvod-description').innerText = data.uvod.description || 'Description not available.';
-                document.getElementById('zazemi-description').innerText = data.zazemi.description || 'Description not available.';
-                document.getElementById('moznost-platby-description').innerText = data.moznostPlatby.description.join(' ') || 'Description not available.';
-                document.getElementById('smluvni-pojistovny-description').innerText = data.smluvniPojistovny.description || 'Description not available.';
-    
-                const ordinacniHodinyContainer = document.getElementById('ordinacni-hodiny-description');
-                ordinacniHodinyContainer.innerHTML = ''; // Clear existing content
-    
-                // Create a table
-                const table = document.createElement('table');
-                table.classList.add('table', 'table-striped', 'mt-3');
-                const thead = document.createElement('thead');
-                const tbody = document.createElement('tbody');
-    
-                // Create table headers
-                const headerRow = document.createElement('tr');
-                const headers = ['Den', 'Dopoledne', 'Odpoledne'];
-                headers.forEach(headerText => {
-                    const th = document.createElement('th');
-                    th.scope = 'col';
-                    th.innerText = headerText;
-                    headerRow.appendChild(th);
-                });
-                thead.appendChild(headerRow);
-    
-                // Create table rows
-                data.ordinacniHodiny.forEach(den => {
-                    const row = document.createElement('tr');
-    
-                    const dayCell = document.createElement('td');
-                    dayCell.innerText = den.day || 'Mimo pacovní dobu';
-                    row.appendChild(dayCell);
-    
-                    const morningCell = document.createElement('td');
-                    morningCell.innerText = den.morning || 'Mimo pacovní dobu';
-                    row.appendChild(morningCell);
-    
-                    const afternoonCell = document.createElement('td');
-                    afternoonCell.innerText = den.afternoon || 'Mimo pacovní dobu';
-                    row.appendChild(afternoonCell);
-    
-                    tbody.appendChild(row);
-                });
-    
-                table.appendChild(thead);
-                table.appendChild(tbody);
-                ordinacniHodinyContainer.appendChild(table);
-    
-                const smluvniPojistovnyContainer = document.getElementById('smluvni-pojistovny-link');
-                smluvniPojistovnyContainer.innerHTML = ''; // Clear existing content
-                for (const company in data.smluvniPojistovny) {
-                    if (data.smluvniPojistovny.hasOwnProperty(company) && company !== 'description') {
-                        const img = document.createElement('img');
-                        img.src = data.smluvniPojistovny[company].logo || 'placeholder.png';
-                        img.alt = company;
-                        img.classList.add('img-fluid', 'm-2');
-    
-                        const link = document.createElement('a');
-                        link.href = data.smluvniPojistovny[company].link || '#';
-                        link.target = "_blank";
-                        link.appendChild(img);
-    
-                        smluvniPojistovnyContainer.appendChild(link);
-                    }
-                }
-            })
-            .catch(error => console.error('Error fetching the JSON data:', error));
-    });
-     </script>
 
 </body>
 </html>
