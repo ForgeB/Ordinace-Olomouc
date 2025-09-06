@@ -7,7 +7,7 @@ therefore in case of suggestions and support, please contact me with your help.
 
 | Version ---- | Supported          |
 | ------------ | ------------------ |
-| 2024.12.15   | :white_check_mark: |
+| 2025.09.07   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 

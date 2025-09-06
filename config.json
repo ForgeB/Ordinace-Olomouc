@@ -1,0 +1,204 @@
+{
+    "navbar": {
+        "items": [
+            {
+                "name": "Domů",
+                "link": "#top"
+            },
+            {
+                "name": "Ordinace",
+                "link": "#ordinace"
+            },
+            {
+                "name": "Služby",
+                "link": "#sluzby"
+            },
+            {
+                "name": "Kontakt",
+                "link": "#kontakt"
+            },
+            {
+                "name": "Objednat se",
+                "link": "tel:+420739659095"
+            }
+        ]
+    },
+    "uvod": {
+        "title": "Zubní Ordinace Olomouc",
+        "description": "Váš důvěryhodný poskytovatel zubní péče v Olomouci."
+    },
+    "zazemi": {
+        "description": "Nejmodernější vybavení, které u nás používáme."
+    },
+    "moznostPlatby": {
+        "description": [
+            "hotově na místě."
+        ]
+    },
+    "ordinacniHodiny": [
+        {
+            "day": "Pondělí",
+            "morning": "7:30–12:00",
+            "afternoon": "12:30–15:00"
+        },
+        {
+            "day": "Úterý",
+            "morning": "7:30–11:30",
+            "afternoon": "13:00–17:30"
+        },
+        {
+            "day": "Středa",
+            "morning": "7:30–12:00",
+            "afternoon": ""
+        },
+        {
+            "day": "Čtvrtek",
+            "morning": "7:30–12:00",
+            "afternoon": "12:30–15:00"
+        },
+        {
+            "day": "Pátek",
+            "morning": "7:30–12:00",
+            "afternoon": ""
+        },
+        {
+            "day": "Sobota",
+            "morning": "Zavřeno",
+            "afternoon": "Zavřeno"
+        },
+        {
+            "day": "Neděle",
+            "morning": "Zavřeno",
+            "afternoon": "Zavřeno"
+        },
+        {
+            "note": "Ordinařní doba se může lišit v připadě státních svátků, dovolené a neočekávaných situací."
+        }
+    ],
+    "smluvniPojistovny": {
+        "description": "Máme smlouvy s těmito poskytovateli zdravotního pojištění:",
+        "pojistovny": [
+            {
+                "name": "Všeobecná zdravotní pojišťovna",
+                "logo": "01_pojistovny/VZP_Logo.png",
+                "link": "https://www.vzp.cz"
+            },
+            {
+                "name": "Vojenská zdravotní pojišťovna",
+                "logo": "01_pojistovny/VOZP_Logo.png",
+                "link": "https://www.vozp.cz"
+            },
+            {
+                "name": "Česká průmyslová zdravotní pojišťovna",
+                "logo": "01_pojistovny/CZP_Logo.png",
+                "link": "https://www.cpzp.cz"
+            },
+            {
+                "name": "Oborová zdravotní pojišťovna",
+                "logo": "01_pojistovny/OZP_Logo.png",
+                "link": "https://www.ozp.cz"
+            },
+            {
+                "name": "Zdravotní pojišťovna ministerstva vnitra",
+                "logo": "01_pojistovny/ZPVM_Logo.png",
+                "link": "https://www.zpmvcr.cz"
+            },
+            {
+                "name": "Revírní bratrská pokladna",
+                "logo": "01_pojistovny/RBP_Logo.png",
+                "link": "https://www.rbp213.cz/cs/"
+            }
+        ]
+    },
+    "kontakty": {
+        "telefon": "+420 739 659 095",
+        "adresa": "Náměstí Republiky 1, 779 00 Olomouc",
+        "email": "",
+        "webova_stranka": ""
+    },
+    "sluzby": {
+        "seznam": [
+            {
+                "nazev": "Preventivní péče",
+                "key": "crystal_tooth",
+                "popis": "Pravidelné kontroly a čištění zubů",
+                "popis2": "Pravidelné kontroly a čištění zubů"
+            },
+            {
+                "nazev": "Konzervativní stomatologie",
+                "key": "crystal_tooth",
+                "popis": "Léčba zubního kazu a výplně",
+                "popis2": "Pravidelné kontroly a čištění zubů"
+            },
+            {
+                "nazev": "Endodoncie",
+                "key": "crystal_tooth",
+                "popis": "Léčba kořenových kanálků",
+                "popis2": "Pravidelné kontroly a čištění zubů"
+            },
+            {
+                "nazev": "Protetika",
+                "key": "crystal_tooth",
+                "popis": "Náhrady zubů - korunky, můstky, protézy",
+                "popis2": "Pravidelné kontroly a čištění zubů"
+            }
+        ]
+    },
+    "meta": {
+        "keywords": "zubní ordinace, stomatolog, Olomouc, zubní péče",
+        "author": "Zubní Ordinace Olomouc",
+        "language": "cs"
+    },
+    "design": {
+        "primary_color": "#80C6E6",
+        "secondary_color": "#AAD9E6",
+        "accent_color": "#C99866",
+        "text_color": "#996C01",
+        "light_color": "#C9E3E7",
+        "font_family": "Inter, Arial, sans-serif"
+    },
+    "images": {
+        "child_patient": {
+            "key": "child_dental",
+            "src": "01_assets/images/03_obsah/01_child.jpg",
+            "description": "Spokojené dítě",
+            "category": "main_board"
+        },
+        "happy_lady_1": {
+            "key": "patient_satisfaction_1",
+            "src": "01_assets/images/03_obsah/02_happy_lady.jpg",
+            "description": "Perfektní úsměv",
+            "category": "main_board"
+        },
+        "happy_lady_2": {
+            "key": "patient_satisfaction_2",
+            "src": "01_assets/images/03_obsah/03_happy_lady.jpg",
+            "description": "Kvalitní péče",
+            "category": "main_board"
+        },
+        "consultation": {
+            "key": "consultation",
+            "src": "01_assets/images/03_obsah/ab_konzultace.jpg",
+            "description": "Profesionální konzultace mezi lékařem a pacientem",
+            "category": "clinic_environment"
+        },
+        "healthy_teeth": {
+            "key": "healthy_teeth",
+            "src": "01_assets/images/03_obsah/aa_zdrave_zuby.jpg",
+            "description": "Obraz zdravých zubů reprezentující naši odbornou péči",
+            "category": "clinic_environment"
+        },
+        "crystal_tooth": {
+            "key": "crystal_tooth",
+            "src": "01_assets/images/03_obsah/ac_zub_krystal.jpeg",
+            "description": "Stylizovaný krystalový zub symbolizující čistotu a kvalitu našich služeb",
+            "category": "services"
+        },
+        "prosthetics": {
+            "key": "prosthetics",
+            "src": "01_assets/images/03_obsah/ad_proteza.jpg",
+            "description": "Kvalitní zubní protéza reprezentující naše protetické služby",
+            "category": "services"
+        }
+    }
+}

@@ -1,18 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
     <title>Zubní Ordinace Olomouc</title>
-
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="01_assets/css/style.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <a class="navbar-brand" href="#">Zubní Ordinace - website in construction</a>
- 
+<body id="top">
+    <!-- Header -->
+    <header class="header">
+        <!-- Main Navigation -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <!-- Logo -->
+                    <div class="navbar-brand">
+                        <h1 id="site-title">Zubní Ordinace Olomouc</h1>
+                    </div>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                    
+                    <!-- Navigation Menu -->
+                    <ul class="navbar-nav" id="navbar-menu">
+                        <!-- Navigation items will be loaded dynamically -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <footer class="text-center mt-5">
-        <p>&copy; 2025 Zubní Ordinace Olomouc. Všchna práva vzhrazena.</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Scroll-triggered Slideshow Section -->
+        <section class="scroll-slideshow-section">
+            <div class="slide-wrapper" id="slide-wrapper">
+                <!-- Main board images will be loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Ordinace Section -->
+        <section id="ordinace" class="ordinace-section">
+            <div class="container">
+                <h2 class="section-title">Ordinace</h2>
+                <div class="ordinace-grid">
+                    <!-- Ordinace content will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Služby Section -->
+        <section id="sluzby" class="sluzby-section">
+            <div class="container">
+                <h2 class="section-title">Služby</h2>
+                <div class="sluzby-content">
+                    <div class="service-selector">
+                        <select id="service-select" class="service-select">
+                            <option value="">Vyberte službu</option>
+                            <!-- Services will be dynamically loaded here -->
+                        </select>
+                    </div>
+                    <div class="service-display" id="service-display">
+                        <div class="service-content" id="service-content">
+                            <div class="service-image">
+                                <img id="selected-service-img" src="" alt="Služba" />
+                            </div>
+                            <div class="service-details">
+                                <h3 id="selected-service-name">Vyberte službu ze seznamu</h3>
+                                <p id="selected-service-description">Klikněte na službu pro zobrazení detailů.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt Section -->
+        <section id="kontakt" class="kontakt-section">
+            <div class="container">
+                <h2 class="section-title">Kontakt</h2>
+                <div class="kontakt-content">
+                    <div class="kontakt-info">
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+420739659095" id="contact-phone">+420 739 659 095</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="contact-address">Náměstí Republiky 1, 779 00 Olomouc</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div class="opening-hours" id="contact-opening-hours">
+                                    <!-- Hours will be loaded dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kontakt-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5172.09783174818!2d17.248016177392163!3d49.596826993013835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47124e8cde9435a7%3A0x3c86d3bcc38871b2!2sStomatologick%C3%A1%20ordinace%2C%20MUDr.%20Sylva%20Vlachopulosov%C3%A1!5e0!3m2!1scs!2scz!4v1757198885716!5m2!1scs!2scz" 
+                               width="600" 
+                               height="450" 
+                               style="border:0;" 
+                               allowfullscreen="" 
+                               loading="lazy" 
+                               referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional content will be added here -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Contact Information -->
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+420739659095" id="footer-phone">+420 739 659 095</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="footer-address"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Opening Hours -->
+                <div class="footer-section">
+                    <h3>Ordinační hodiny</h3>
+                    <div class="opening-hours" id="opening-hours">
+                        <!-- Hours will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 <span id="footer-copyright"></span>. Všechna práva vyhrazena.</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- JavaScript -->
+    <script src="01_assets/js/loader.js"></script>
 </body>
 </html>
