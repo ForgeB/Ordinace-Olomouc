@@ -90,43 +90,30 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Insurance Companies Section -->
+                <div class="insurance-section">
+                    <h3 class="insurance-title">Smluvní pojišťovny</h3>
+                    <p class="insurance-description">Máme smlouvy s těmito poskytovateli zdravotního pojištění:</p>
+                    <div class="insurance-grid" id="insurance-grid">
+                        <!-- Insurance companies will be loaded dynamically -->
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Kontakt Section -->
         <section id="kontakt" class="kontakt-section">
-            <div class="container">
-                <h2 class="section-title">Kontakt</h2>
-                <div class="kontakt-content">
-                    <div class="kontakt-info">
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <a href="tel:+420739659095" id="contact-phone">+420 739 659 095</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span id="contact-address">Náměstí Republiky 1, 779 00 Olomouc</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-clock"></i>
-                                <div class="opening-hours" id="contact-opening-hours">
-                                    <!-- Hours will be loaded dynamically -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="kontakt-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5172.09783174818!2d17.248016177392163!3d49.596826993013835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47124e8cde9435a7%3A0x3c86d3bcc38871b2!2sStomatologick%C3%A1%20ordinace%2C%20MUDr.%20Sylva%20Vlachopulosov%C3%A1!5e0!3m2!1scs!2scz!4v1757198885716!5m2!1scs!2scz" 
-                               width="600" 
-                               height="450" 
-                               style="border:0;" 
-                               allowfullscreen="" 
-                               loading="lazy" 
-                               referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
+            <h2 class="section-title">Mapa</h2>
+            <div class="kontakt-map" style="width:100%;height:100%;min-height:400px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5172.09783174818!2d17.248016177392163!3d49.596826993013835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47124e8cde9435a7%3A0x3c86d3bcc38871b2!2sStomatologick%C3%A1%20ordinace%2C%20MUDr.%20Sylva%20Vlachopulosov%C3%A1!5e0!3m2!1scs!2scz!4v1757198885716!5m2!1scs!2scz"
+                    width="100%"
+                    height="450"
+                    style="border:0;min-height:400px;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </section>
 
@@ -134,7 +121,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer id="footer" class="footer">
         <div class="container">
             <div class="footer-content">
                 <!-- Contact Information -->

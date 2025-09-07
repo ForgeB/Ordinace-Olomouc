@@ -1379,3 +1379,109 @@ body {
         padding: 8px;
     }
 }
+
+/* Insurance Companies Section */
+.insurance-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid var(--light-color);
+}
+
+.insurance-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.insurance-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.insurance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.insurance-item {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(128, 198, 230, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.insurance-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(128, 198, 230, 0.2);
+    border-color: var(--primary-color);
+    text-decoration: none;
+    color: inherit;
+}
+
+.insurance-logo {
+    width: 120px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto 15px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.insurance-item:hover .insurance-logo {
+    transform: scale(1.05);
+}
+
+.insurance-name {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Responsive adjustments for insurance section */
+@media (max-width: 768px) {
+    .insurance-section {
+        margin-top: 40px;
+        padding-top: 30px;
+    }
+    
+    .insurance-title {
+        font-size: 1.6rem;
+    }
+    
+    .insurance-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+    
+    .insurance-item {
+        padding: 20px 15px;
+    }
+    
+    .insurance-logo {
+        width: 100px;
+        height: 65px;
+    }
+    
+    .insurance-name {
+        font-size: 0.9rem;
+    }
+}

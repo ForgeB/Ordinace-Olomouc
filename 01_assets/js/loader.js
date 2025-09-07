@@ -16,6 +16,7 @@ class DentalClinicLoader {
             this.initializeScrollSlideshow();
             this.initializeOrdinaceSection();
             this.initializeSluzbySection();
+            this.initializeInsuranceSection();
             this.setupMobileMenu();
             this.applyDesignSettings();
             this.addScrollEffect();
@@ -616,56 +617,7 @@ class DentalClinicLoader {
             contactAddress.textContent = this.config.kontakty.adresa;
         }
 
-        // Load opening hours in kontakt section
-    loadOpeningHours() {
-        const hoursContainer = document.getElementById('opening-hours');
-        if (!hoursContainer || !this.config.ordinacniHodiny) return;
-
-        hoursContainer.innerHTML = '';
-
-        if (contactHours) {
-            contactHours.innerHTML = '';
-            
-        this.config.ordinacniHodiny.forEach(day => {
-            // Skip the note entry
-            if (day.note) return;
-
-            const dayElement = document.createElement('div');
-            dayElement.className = 'hours-day';
-
-            const dayName = document.createElement('span');
-            dayName.className = 'day-name';
-            dayName.textContent = dayInfo.day;
-
-            const dayHours = document.createElement('span');
-            dayHours.className = 'day-hours';
-
-            // Format the hours
-            let hoursText = '';
-            if (dayInfo.morning === 'Zavřeno' || (!dayInfo.morning && !dayInfo.afternoon)) {
-                hoursText = 'Zavřeno';
-                dayHours.classList.add('closed');
-            } else {
-                const morning = dayInfo.morning || '';
-                const afternoon = dayInfo.afternoon || '';
-                
-                if (morning && afternoon) {
-                    hoursText = `${morning}, ${afternoon}`;
-                } else if (morning) {
-                    hoursText = morning;
-                } else if (afternoon) {
-                    hoursText = afternoon;
-                }
-            }
-
-            dayHours.textContent = hoursText;
-
-            dayElement.appendChild(dayName);
-            dayElement.appendChild(dayHours);
-            hoursContainer.appendChild(dayElement);
-        });
-        }
-
+        // ...existing code...
         console.log('📞 Kontakt section initialized');
     }
 
@@ -722,6 +674,54 @@ class DentalClinicLoader {
         if (!this.config.images || !key) return null;
         
         return Object.values(this.config.images).find(image => image.key === key);
+    }
+
+    initializeInsuranceSection() {
+        if (!this.config.smluvniPojistovny || !this.config.smluvniPojistovny.pojistovny) return;
+
+        const insuranceGrid = document.getElementById('insurance-grid');
+        if (!insuranceGrid) {
+            console.log('Insurance grid not found');
+            return;
+        }
+
+        // Clear existing content
+        insuranceGrid.innerHTML = '';
+
+        // Create insurance items
+        this.config.smluvniPojistovny.pojistovny.forEach((insurance, index) => {
+            const insuranceItem = document.createElement('a');
+            insuranceItem.className = 'insurance-item';
+            insuranceItem.href = insurance.link;
+            insuranceItem.target = '_blank';
+            insuranceItem.rel = 'noopener noreferrer';
+
+            // Create logo image
+            const insuranceLogo = document.createElement('img');
+            insuranceLogo.className = 'insurance-logo';
+            insuranceLogo.src = `01_assets/images/${insurance.logo}`;
+            insuranceLogo.alt = insurance.name;
+            insuranceLogo.loading = 'lazy';
+            
+            // Add error handling for logo
+            insuranceLogo.addEventListener('error', () => {
+                console.warn(`Failed to load insurance logo: ${insuranceLogo.src}`);
+                insuranceLogo.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMTIwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iODAiIGZpbGw9IiNmNGY0ZjQiLz48dGV4dCB4PSI2MCIgeT0iNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvZ288L3RleHQ+PC9zdmc+';
+            });
+
+            // Create insurance name
+            const insuranceName = document.createElement('p');
+            insuranceName.className = 'insurance-name';
+            insuranceName.textContent = insurance.name;
+
+            // Add to item
+            insuranceItem.appendChild(insuranceLogo);
+            insuranceItem.appendChild(insuranceName);
+            
+            insuranceGrid.appendChild(insuranceItem);
+        });
+
+        console.log(`🏥 Loaded ${this.config.smluvniPojistovny.pojistovny.length} insurance companies`);
     }
 }
 
