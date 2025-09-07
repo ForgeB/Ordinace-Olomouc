@@ -617,45 +617,53 @@ class DentalClinicLoader {
         }
 
         // Load opening hours in kontakt section
+    loadOpeningHours() {
+        const hoursContainer = document.getElementById('opening-hours');
+        if (!hoursContainer || !this.config.ordinacniHodiny) return;
+
+        hoursContainer.innerHTML = '';
+
         if (contactHours) {
             contactHours.innerHTML = '';
             
-            this.config.ordinacniHodiny.forEach((day) => {
-                const dayElement = document.createElement('div');
-                dayElement.className = 'hours-day';
-        
-                const dayName = document.createElement('span');
-                dayName.className = 'day-name';
-                dayName.textContent = day.day;
-        
-                const dayHours = document.createElement('span');
-                dayHours.className = 'day-hours';
-        
-                const morning = day.morning;
-                const afternoon = day.afternoon;
-        
-                // If both shifts are "Closed", show only one "Closed"
-                if (
-                    (!morning || morning.toLowerCase() === 'closed') &&
-                    (!afternoon || afternoon.toLowerCase() === 'closed')
-                ) {
-                    dayHours.textContent = 'Closed';
-                } 
-                else {
-                    // Build hours text normally
-                    if (morning && afternoon) {
-                        dayHours.textContent = `${morning}, ${afternoon}`;
-                    } else if (morning) {
-                        dayHours.textContent = morning;
-                    } else if (afternoon) {
-                        dayHours.textContent = afternoon;
-                    }
+        this.config.ordinacniHodiny.forEach(day => {
+            // Skip the note entry
+            if (day.note) return;
+
+            const dayElement = document.createElement('div');
+            dayElement.className = 'hours-day';
+
+            const dayName = document.createElement('span');
+            dayName.className = 'day-name';
+            dayName.textContent = dayInfo.day;
+
+            const dayHours = document.createElement('span');
+            dayHours.className = 'day-hours';
+
+            // Format the hours
+            let hoursText = '';
+            if (dayInfo.morning === 'Zavřeno' || (!dayInfo.morning && !dayInfo.afternoon)) {
+                hoursText = 'Zavřeno';
+                dayHours.classList.add('closed');
+            } else {
+                const morning = dayInfo.morning || '';
+                const afternoon = dayInfo.afternoon || '';
+                
+                if (morning && afternoon) {
+                    hoursText = `${morning}, ${afternoon}`;
+                } else if (morning) {
+                    hoursText = morning;
+                } else if (afternoon) {
+                    hoursText = afternoon;
                 }
-        
-                dayElement.appendChild(dayName);
-                dayElement.appendChild(dayHours);
-                contactHours.appendChild(dayElement);
-            });
+            }
+
+            dayHours.textContent = hoursText;
+
+            dayElement.appendChild(dayName);
+            dayElement.appendChild(dayHours);
+            hoursContainer.appendChild(dayElement);
+        });
         }
 
         console.log('📞 Kontakt section initialized');
