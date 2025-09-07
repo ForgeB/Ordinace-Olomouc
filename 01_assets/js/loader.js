@@ -623,33 +623,35 @@ class DentalClinicLoader {
             this.config.ordinacniHodiny.forEach((day) => {
                 const dayElement = document.createElement('div');
                 dayElement.className = 'hours-day';
-
+        
                 const dayName = document.createElement('span');
                 dayName.className = 'day-name';
                 dayName.textContent = day.day;
-
+        
                 const dayHours = document.createElement('span');
                 dayHours.className = 'day-hours';
-
-                // Skip days that are closed or entries with notes
-                if (day.note || (!day.morning && !day.afternoon)) {
-                    return; // Skip this iteration
-                }
-
-                let hoursText = '';
+        
                 const morning = day.morning;
                 const afternoon = day.afternoon;
-                
-                if (morning && afternoon) {
-                    hoursText = `${morning}, ${afternoon}`;
-                } else if (morning) {
-                    hoursText = morning;
-                } else if (afternoon) {
-                    hoursText = afternoon;
+        
+                // If both shifts are "Closed", show only one "Closed"
+                if (
+                    (!morning || morning.toLowerCase() === 'closed') &&
+                    (!afternoon || afternoon.toLowerCase() === 'closed')
+                ) {
+                    dayHours.textContent = 'Closed';
+                } 
+                else {
+                    // Build hours text normally
+                    if (morning && afternoon) {
+                        dayHours.textContent = `${morning}, ${afternoon}`;
+                    } else if (morning) {
+                        dayHours.textContent = morning;
+                    } else if (afternoon) {
+                        dayHours.textContent = afternoon;
+                    }
                 }
-
-                dayHours.textContent = hoursText;
-
+        
                 dayElement.appendChild(dayName);
                 dayElement.appendChild(dayHours);
                 contactHours.appendChild(dayElement);
