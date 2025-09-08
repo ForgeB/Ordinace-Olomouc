@@ -3,23 +3,28 @@
         "items": [
             {
                 "name": "Domů",
-                "link": "#top"
+                "link": "#top",
+                "icon": "fas fa-home"
             },
             {
                 "name": "Ordinace",
-                "link": "#ordinace"
+                "link": "#ordinace",
+                "icon": "fas fa-clinic-medical"
             },
             {
                 "name": "Služby",
-                "link": "#sluzby"
+                "link": "#sluzby",
+                "icon": "fas fa-tooth"
             },
             {
                 "name": "Kontakt",
-                "link": "#footer"
+                "link": "#footer",
+                "icon": "fas fa-envelope"
             },
             {
                 "name": "Objednat se",
-                "link": "tel:+420739659095"
+                "link": "tel:+420739659095",
+                "icon": "fas fa-phone"
             }
         ]
     },
@@ -80,32 +85,32 @@
         "pojistovny": [
             {
                 "name": "Všeobecná zdravotní pojišťovna",
-                "logo": "01_pojistovny/VZP_Logo.png",
+                "logo": "01_Pojistovny/VZP_Logo.png",
                 "link": "https://www.vzp.cz"
             },
             {
                 "name": "Vojenská zdravotní pojišťovna",
-                "logo": "01_pojistovny/VOZP_Logo.png",
+                "logo": "01_Pojistovny/VOZP_Logo.png",
                 "link": "https://www.vozp.cz"
             },
             {
                 "name": "Česká průmyslová zdravotní pojišťovna",
-                "logo": "01_pojistovny/CZP_Logo.png",
+                "logo": "01_Pojistovny/CZP_Logo.png",
                 "link": "https://www.cpzp.cz"
             },
             {
                 "name": "Oborová zdravotní pojišťovna",
-                "logo": "01_pojistovny/OZP_Logo.png",
+                "logo": "01_Pojistovny/OZP_Logo.png",
                 "link": "https://www.ozp.cz"
             },
             {
                 "name": "Zdravotní pojišťovna ministerstva vnitra",
-                "logo": "01_pojistovny/ZPVM_Logo.png",
+                "logo": "01_Pojistovny/ZPVM_Logo.png",
                 "link": "https://www.zpmvcr.cz"
             },
             {
                 "name": "Revírní bratrská pokladna",
-                "logo": "01_pojistovny/RBP_Logo.png",
+                "logo": "01_Pojistovny/RBP_Logo.png",
                 "link": "https://www.rbp213.cz/cs/"
             }
         ]

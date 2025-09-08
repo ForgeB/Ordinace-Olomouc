@@ -371,7 +371,10 @@ class DentalClinicLoader {
             const a = document.createElement('a');
             
             a.href = item.link;
-            a.textContent = item.name;
+            
+            // Create icon and text structure
+            const iconClass = item.icon || 'fas fa-circle';
+            a.innerHTML = `<i class="${iconClass}"></i> <span>${item.name}</span>`;
             
             // Add active class to first item by default
             if (index === 0) {
@@ -381,7 +384,6 @@ class DentalClinicLoader {
             // Special handling for phone links
             if (item.link.startsWith('tel:')) {
                 a.classList.add('phone-link');
-                a.innerHTML = `<i class="fas fa-phone"></i> ${item.name}`;
             }
             
             // Add click handler for smooth scrolling
@@ -699,7 +701,7 @@ class DentalClinicLoader {
             // Create logo image
             const insuranceLogo = document.createElement('img');
             insuranceLogo.className = 'insurance-logo';
-            insuranceLogo.src = `01_assets/images/${insurance.logo}`;
+            insuranceLogo.src = `./01_assets/images/${insurance.logo}`;
             insuranceLogo.alt = insurance.name;
             insuranceLogo.loading = 'lazy';
             
